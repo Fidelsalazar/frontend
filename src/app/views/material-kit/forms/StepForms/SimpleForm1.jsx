@@ -1,6 +1,6 @@
-import { DatePicker } from "@mui/lab";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
+//import { DatePicker } from "@mui/lab";
+//import AdapterDateFns from "@mui/lab/AdapterDateFns";
+//import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import {
   Button,
   Checkbox,
@@ -48,15 +48,16 @@ const SimpleForm = () => {
     setState({ ...state, [event.target.name]: event.target.value });
   };
 
-  const handleDateChange = (date) => setState({ ...state, date });
+  //const handleDateChange = (date) => setState({ ...state, date });
 
   const {
     username,
     firstName,
-    mobile,
+    //mobile,
     password,
-    date,
+    //date,
     email,
+    creditCard,
   } = state;
 
   return (
@@ -78,7 +79,7 @@ const SimpleForm = () => {
             <TextField
               type="text"
               name="firstName"
-              label="Name"
+              label="Address"
               onChange={handleChange}
               value={firstName || ""}
               validators={["required"]}
@@ -86,16 +87,16 @@ const SimpleForm = () => {
             />
 
             <TextField
-              type="email"
+              type="text"
               name="email"
-              label="Email"
+              label="Quantity in cubic meters"
               value={email || ""}
               onChange={handleChange}
               validators={["required", "isEmail"]}
               errorMessages={["This field is required", "email is not valid"]}
             />
 
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
+            {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
               <DatePicker
                 value={date}
                 onChange={handleDateChange}
@@ -108,36 +109,27 @@ const SimpleForm = () => {
                   />
                 )}
               />
-            </LocalizationProvider>
+            </LocalizationProvider> */}
+            
+          </Grid>
 
-            {/* 
+          <Grid item lg={6} md={6} sm={12} xs={12} sx={{ mt: 2 }}>
+            
             <TextField
               sx={{ mb: 4 }}
               type="number"
               name="creditCard"
-              label="Credit Card"
+              label="Mobile Number"
               onChange={handleChange}
               value={creditCard || ""}
               errorMessages={["This field is required"]}
-              validators={["required", "minStringLength:16", "maxStringLength: 16"]}
+              validators={["required", "minStringLength:8", "maxStringLength: 8"]}
             /> 
-            */}
-          </Grid>
-
-          <Grid item lg={6} md={6} sm={12} xs={12} sx={{ mt: 2 }}>
-            <TextField
-              type="text"
-              name="mobile"
-              value={mobile || ""}
-              label="Mobile Number"
-              onChange={handleChange}
-              validators={["required"]}
-              errorMessages={["this field is required"]}
-            />
+           
             <TextField
               name="password"
-              type="password"
-              label="Password"
+              type="email"
+              label="Email"
               value={password || ""}
               onChange={handleChange}
               validators={["required"]}

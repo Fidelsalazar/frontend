@@ -2,7 +2,7 @@ import { Stack } from "@mui/material";
 import { Box, styled } from "@mui/system";
 import { Breadcrumb, SimpleCard } from "app/components";
 import SimpleForm from "./StepForms/SimpleForm1";
-import StepperForm from "./StepperForm";
+//import StepperForm from "./StepperForm";
 
 const Container = styled("div")(({ theme }) => ({
   margin: "30px",
@@ -17,11 +17,11 @@ const AppForm = () => {
   return (
     <Container>
       <Box className="breadcrumb">
-        <Breadcrumb routeSegments={[{ name: "Material", path: "/material" }, { name: "Form" }]} />
+        <Breadcrumb routeSegments={[{ name: "Components", path: "/material" }, { name: "Form" }]} />
       </Box>
 
       <Stack spacing={3}>
-        <SimpleCard title="Simple Form">
+        <SimpleCard title="Application Form">
           <SimpleForm />
         </SimpleCard>
       </Stack>
